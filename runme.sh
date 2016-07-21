@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -fr css fonts images lang lib o2c.html swagger-ui swagger-ui.* *.log index.html rest_api.json
+rm -fr css fonts images lang lib o2c.html swagger-ui swagger-ui.* 
 
 if [ ! -f rest_api.json ]; then
     echo "Downloading rest_api.json from GitHub hyperledger/fabric repository"
@@ -20,7 +20,7 @@ if [ $? -eq 1 ]; then
   fi
 fi
 
-if [ ! -f swagger-ui/dist/index.html ]; then
+if [ ! -f index.html ]; then
   git clone https://github.com/swagger-api/swagger-ui.git
   if [ $? -eq 1 ]; then
     echo "Unable to clone swagger-ui"
@@ -31,6 +31,5 @@ if [ ! -f swagger-ui/dist/index.html ]; then
   cp replace.html index.html
 fi
 
-rm http-server.log
 http-server -a 0.0.0.0 -p 5554 -o --cors
 exit $?

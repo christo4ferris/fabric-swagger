@@ -1,0 +1,12 @@
+# Local build binaries
+*.log
+index.html
+rest_api.json
+swagger-ui/
+css/
+images/
+fonts/
+lang/
+lib/
+swagger-ui.*
+o2c.html
