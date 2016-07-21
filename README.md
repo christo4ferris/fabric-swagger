@@ -5,16 +5,16 @@ This should download the Swagger definition for the [Hyperledger Fabric](https:/
 1. Start a peer process. You can use one of the approaches described in the Hyperledger Fabric documentation, [here](http://hyperledger-fabric.readthedocs.io/en/latest/Setup/Network-setup/)
 
 1. Clone this repository
-```
-git clone https://github.com/christo4ferris/fabric-swagger
-```
+   ```
+   git clone https://github.com/christo4ferris/fabric-swagger
+   ```
 
 1. Change directory to the cloned repository
-```
-cd fabric-swagger
-```
+   ```
+   cd fabric-swagger
+   ```
 
 1. Execute the `runme.sh` script
-```
-./runme.sh
-```
+   ```
+   ./runme.sh
+   ```
