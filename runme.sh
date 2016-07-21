@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -fr css fonts images lang lib o2c.html swagger-ui swagger-ui.* 
+rm -fr css fonts images lang lib o2c.html swagger-ui swagger-ui.*
 
 if [ ! -f rest_api.json ]; then
     echo "Downloading rest_api.json from GitHub hyperledger/fabric repository"
@@ -12,7 +12,7 @@ if [ ! -f rest_api.json ]; then
     fi
 fi
 which npm
-if [ $? -eq 1 ]; then
+if [ $? -eq 0 ]; then
   npm install http-server
   if [ $? -eq 1 ]; then
     echo "Unable to install http-server npm module"

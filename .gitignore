@@ -10,3 +10,4 @@ lang/
 lib/
 swagger-ui.*
 o2c.html
+node_modules/
