@@ -37,11 +37,13 @@
       if (url && url.length > 1) {
         url = decodeURIComponent(url[1]);
       } else {
-        url = "http://localhost:5554/rest_api.json";
+        url = "rest_api.json";
       }
+
       hljs.configure({
         highlightSizeThreshold: 5000
       });
+
       // Pre load translate...
       if(window.SwaggerTranslator) {
         window.SwaggerTranslator.translate();
@@ -61,6 +63,7 @@
               additionalQueryStringParams: {}
             });
           }
+
           if(window.SwaggerTranslator) {
             window.SwaggerTranslator.translate();
           }
@@ -73,7 +76,9 @@
         defaultModelRendering: 'schema',
         showRequestHeaders: false
       });
+
       window.swaggerUi.load();
+
       function log() {
         if ('console' in window) {
           console.log.apply(console, arguments);

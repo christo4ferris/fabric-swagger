@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -fr css fonts images lang lib o2c.html swagger-ui swagger-ui.* *.log index.html rest_api.json
 
 if [ ! -f rest_api.json ]; then
     echo "Downloading rest_api.json from GitHub hyperledger/fabric repository"
@@ -27,9 +28,9 @@ if [ ! -f swagger-ui/dist/index.html ]; then
   fi
   cp -r swagger-ui/dist/* .
   rm index.html
-  cp fabric.html index.html
+  cp replace.html index.html
 fi
 
 rm http-server.log
-http-server -a 0.0.0.0 -p 5554 -o --cors &> http-server.log &
+http-server -a 0.0.0.0 -p 5554 -o --cors
 exit $?
