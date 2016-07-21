@@ -31,5 +31,5 @@ if [ ! -f index.html ]; then
   cp replace.html index.html
 fi
 
-http-server -a 0.0.0.0 -p 5554 -o --cors
+./node_module/.bin/http-server -a 0.0.0.0 -p 5554 -o --cors
 exit $?
