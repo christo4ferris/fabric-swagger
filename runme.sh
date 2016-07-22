@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -fr css fonts images lang lib o2c.html swagger-ui swagger-ui.*
+rm -fr css fonts images lang lib o2c.html swagger-ui.* index.html
 
 if [ ! -f rest_api.json ]; then
     echo "Downloading rest_api.json from GitHub hyperledger/fabric repository"
@@ -11,8 +11,12 @@ if [ ! -f rest_api.json ]; then
       exit 1
     fi
 fi
+
 which npm
-if [ $? -eq 0 ]; then
+if [ $? -eq 1 ]; then
+  echo "Node.js/npm not installed. Please visit https://nodejs.org/en/ and install Node.js"
+  exit 1
+else
   npm install http-server
   if [ $? -eq 1 ]; then
     echo "Unable to install http-server npm module"
@@ -20,16 +24,17 @@ if [ $? -eq 0 ]; then
   fi
 fi
 
-if [ ! -f index.html ]; then
+if [ ! -f swagger-ui/dist/index.html ]; then
   git clone https://github.com/swagger-api/swagger-ui.git
   if [ $? -eq 1 ]; then
     echo "Unable to clone swagger-ui"
     exit 1
   fi
-  cp -r swagger-ui/dist/* .
-  rm index.html
-  cp replace.html index.html
 fi
 
-./node_module/.bin/http-server -a 0.0.0.0 -p 5554 -o --cors
+cp -r swagger-ui/dist/* .
+rm index.html
+cp replace.html index.html
+
+./node_modules/.bin/http-server -a 0.0.0.0 -p 5554 -o --cors
 exit $?
