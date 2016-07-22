@@ -16,7 +16,11 @@ which npm
 if [ $? -eq 1 ]; then
   echo "Node.js/npm not installed. Please visit https://nodejs.org/en/ and install Node.js"
   exit 1
-else
+fi
+
+export PATH=./node_modules/.bin:$PATH
+which http-server
+if [ $? -eq 1 ]; then
   npm install http-server
   if [ $? -eq 1 ]; then
     echo "Unable to install http-server npm module"
@@ -36,5 +40,5 @@ cp -r swagger-ui/dist/* .
 rm index.html
 cp replace.html index.html
 
-./node_modules/.bin/http-server -a 0.0.0.0 -p 5554 -o --cors
+http-server -a 0.0.0.0 -p 5554 -o --cors
 exit $?
