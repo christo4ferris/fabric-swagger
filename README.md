@@ -6,11 +6,12 @@ This should download the Swagger definition for the [Hyperledger Fabric](https:/
 
 1. The bootstrap.sh script will clone this repository, and launch a Swagger UI for your peer process
    ```
-   curl -XGET https://raw.githubusercontent.com/hyperledger/fabric-swagger/master/bootstrap.sh | bash
+   curl -sS https://raw.githubusercontent.com/christo4ferris/fabric-swagger/master/bootstrap.sh | bash
    ```
 
-1. For subsequent invocations, execute the `runme.sh` script
-   ```
-   cd fabric-swagger
-   ./runme.sh
-   ```
+For subsequent invocations, execute the `runme.sh` script
+
+```
+cd fabric-swagger
+./runme.sh
+```
